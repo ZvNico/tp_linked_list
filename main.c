@@ -11,6 +11,8 @@ int main() {
     liste = ajouter_fin(liste, 9);
     liste = supprimer_debut(liste, &x);
     liste = supprimer_fin(liste, &x);
+    liste = ajouter_fin(liste, 9);
+    liste = supprimer_val(liste, 8);
     afficher(liste);
     return 0;
 }

@@ -57,8 +57,25 @@ maillon_t *supprimer_fin(maillon_t *pliste, int *pval) {
 }
 
 maillon_t *supprimer_val(maillon_t *pliste, int val) {
+    if (pliste == NULL) {
+        return pliste;
+    }
     maillon_t *temp = pliste;
-
+    maillon_t *temp_to_free = pliste;
+    while (temp->suiv != NULL) {
+        if (temp->suiv->x == val) {
+            temp_to_free = temp->suiv;
+            if (temp->suiv->suiv != NULL) {
+                temp->suiv = temp->suiv->suiv;
+            } else {
+                temp->suiv = NULL;
+            }
+            free(temp_to_free);
+            return pliste;
+        }
+        temp = temp->suiv;
+    }
+    return pliste;
 }
 
 void afficher(maillon_t *pliste) {
