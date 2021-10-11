@@ -1,18 +1,13 @@
 #include <stdio.h>
-#include "src/linked_list/linked_list.h"
+#include "src/history/history.h"
 
 int main() {
-    int x;
-    maillon_t *liste = (maillon_t *) malloc(sizeof(maillon_t));
-    liste->x = 5;
-    liste->suiv = NULL;
-    liste = ajouter_debut(liste, 10);
-    liste = ajouter_fin(liste, 8);
-    liste = ajouter_fin(liste, 9);
-    liste = supprimer_debut(liste, &x);
-    liste = supprimer_fin(liste, &x);
-    liste = ajouter_fin(liste, 9);
-    liste = supprimer_val(liste, 8);
-    afficher(liste);
+    DLL *dll = init_dll(5);
+    push(&dll, 10);
+    push(&dll, 12);
+    forward(&dll);
+    print_dll(dll);
+    backward(&dll);
+    print_dll(dll);
     return 0;
 }
