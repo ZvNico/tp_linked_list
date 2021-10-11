@@ -2,7 +2,7 @@
 #include "src/big_int/big_int.h"
 
 int main() {
-    BIN *bin = init_bin();
+    BIN *bin;
     BIN *bin1 = init_bin();
     BIN *bin2 = init_bin();
     push_int(bin1, 320012);
