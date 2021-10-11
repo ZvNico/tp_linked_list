@@ -1,13 +1,18 @@
 #include <stdio.h>
-#include "src/history/history.h"
+#include "src/big_int/big_int.h"
 
 int main() {
-    DLL *dll = init_dll(5);
-    push(&dll, 10);
-    push(&dll, 12);
-    forward(&dll);
-    print_dll(dll);
-    backward(&dll);
-    print_dll(dll);
+    BIN *bin = init_bin();
+    BIN *bin1 = init_bin();
+    BIN *bin2 = init_bin();
+    push_int(bin1, 320012);
+    push_int(bin2, 12023000);
+    print_bin(bin1);
+    printf("\n");
+    print_bin(bin2);
+    printf("\n");
+    bin = addition_bin(bin1, bin2);
+    print_bin(bin);
+    printf("\n");
     return 0;
 }
